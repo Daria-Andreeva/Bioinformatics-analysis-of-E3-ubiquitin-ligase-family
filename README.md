@@ -9,7 +9,9 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
 
 ### Objects:
 Е3 ligase ТRIM25 (PDB structure: 5FER)
+
 Е3 ligase HUWE1 (PDB structure: 3H1D)
+
 Е3 ligase FBXW7 (PDB structure: 2OVP)
 
 ### Pipeline:
