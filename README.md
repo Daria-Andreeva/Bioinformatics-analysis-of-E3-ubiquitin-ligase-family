@@ -53,6 +53,13 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       wget http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp
       gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
       gmx mdrun -deffnm md_0_1
+      
+      # Check the stability of the protein structure during simulation and calculate rmsd.
+      gmx trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_noPBC.xtc -pbc mol -center
+      gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
+
+
+      
 
       
 
