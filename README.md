@@ -8,7 +8,7 @@ Proteolysis-targeting chimeras (PROTACs) induce targeted protein degradation by 
 In order to predict binding sites we ran a full-atom molecular dynamics simulation in water for three ligases (TRIM25, HUWE1, FBXW7) via GROMACS tool, predicted binding sites across the obtained trajectory using BiteNet tool, clustered the obtained predictions and finally selected the most promising ones.
 
 ### Objects:
-Е3 ligase ТRIM25 (PDB structure: 5FER)
+Е3 ligase ТRIM25 (PDB structure: [5FER](https://www.rcsb.org/structure/5FER))
 
 Е3 ligase HUWE1 (PDB structure: 3H1D)
 
