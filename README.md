@@ -14,7 +14,9 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
 
 ### Pipeline:
   1. Run full-atom molecular dynamics simulation in water
+      
       a) Gromacs modelling 
+      
       b) Extraction of various conformations of ligase
   2. Predict binding sites
   3. Cluster the obtained predictions 
