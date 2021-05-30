@@ -19,10 +19,43 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       
       a) Gromacs modelling
       ```bash
-      sudo apt-get install gromacs # install gromacs 2018 from repository
+      # install gromacs 2018 from repository
+      sudo apt-get install gromacs 
       
+      # convert your pdb file into gro format, leaving only the protein of interest in the configuration (for this you can use grep or any other way). Select field amber03
+      gmx pdb2gmx -f protein.pdb -o protein.gro -water spce
       
+      # then we place the protein in a cubic cell, center it and set the distance to the cell border at 1 nm
+      gmx editconf -f protein.gro -o protein_in_box.gro -c -d 1.0 -bt cubic
+      
+      # solve your protein in water
+      gmx solvate -cp protein_in_box.gro -cs spc216.gro -o protein_in_water.gro -p topol.top
+      
+      # add ions to your system to balance the charge(you can take the mdp file from [ions.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/ions.mdp))
+      gmx grompp -f ions.mdp -c protein_in_water.gro -p topol.top -o ions.tpr
+      gmx genion -s ions.tpr -o protein_in_water.gro -p topol.top -pname NA -nname CL -neutral
+       
+      # Minimizing system energy (you can take the mdp file from [minim.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/minim.mdp))
+      gmx grompp -f minim.mdp -c protein_in_water.gro -p topol.top -o em.tpr
+      gmx mdrun -v -deffnm em
+      
+      # equilibration([nvt.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/nvt.mdp)/[npt.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/npt.mdp))
+      gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr
+      gmx mdrun -deffnm nvt
+      gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
+      gmx mdrun -deffnm nvt
+      
+      # Production MD run([md.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp))
+      gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
+      gmx mdrun -deffnm md_0_1
+
+      
+
+      
+
+  
       ```
+      
       b) Extraction of various conformations of ligase
   2. Predict binding sites
   3. Cluster the obtained predictions 
