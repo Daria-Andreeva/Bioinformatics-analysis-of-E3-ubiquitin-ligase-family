@@ -57,15 +57,6 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       # Check the stability of the protein structure during simulation and calculate rmsd.
       gmx trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_noPBC.xtc -pbc mol -center
       gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
-
-
-      
-
-      
-
-      
-
-  
       ```
       
       b) Extraction of various conformations of ligase
