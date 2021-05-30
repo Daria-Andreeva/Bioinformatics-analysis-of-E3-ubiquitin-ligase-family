@@ -10,15 +10,19 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
 ### Objects:
 Е3 ligase ТRIM25 (PDB structure: [5FER](https://www.rcsb.org/structure/5FER))
 
-Е3 ligase HUWE1 (PDB structure: 3H1D)
+Е3 ligase HUWE1 (PDB structure: [3H1D](https://www.rcsb.org/structure/3H1D))
 
-Е3 ligase FBXW7 (PDB structure: 2OVP)
+Е3 ligase FBXW7 (PDB structure: [2OVP](https://www.rcsb.org/structure/2OVP))
 
 ### Pipeline:
   1. Run full-atom molecular dynamics simulation in water
       
-      a) Gromacs modelling 
+      a) Gromacs modelling
+      ```bash
+      sudo apt-get install gromacs # install gromacs 2018 from repository
       
+      
+      ```
       b) Extraction of various conformations of ligase
   2. Predict binding sites
   3. Cluster the obtained predictions 
