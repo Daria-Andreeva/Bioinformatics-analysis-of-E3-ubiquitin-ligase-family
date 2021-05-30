@@ -31,21 +31,26 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       # solve your protein in water
       gmx solvate -cp protein_in_box.gro -cs spc216.gro -o protein_in_water.gro -p topol.top
       
-      # add ions to your system to balance the charge(you can take the mdp file from [ions.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/ions.mdp))
+      # add ions to your system to balance the charge
+      wget http://www.mdtutorials.com/gmx/lysozyme/Files/ions.mdp
       gmx grompp -f ions.mdp -c protein_in_water.gro -p topol.top -o ions.tpr
       gmx genion -s ions.tpr -o protein_in_water.gro -p topol.top -pname NA -nname CL -neutral
        
-      # Minimizing system energy (you can take the mdp file from [minim.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/minim.mdp))
+      # Minimizing system energy
+      wget http://www.mdtutorials.com/gmx/lysozyme/Files/minim.mdp
       gmx grompp -f minim.mdp -c protein_in_water.gro -p topol.top -o em.tpr
       gmx mdrun -v -deffnm em
       
-      # equilibration([nvt.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/nvt.mdp)/[npt.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/npt.mdp))
+      # equilibration
+      wget http://www.mdtutorials.com/gmx/lysozyme/Files/nvt.mdp
       gmx grompp -f nvt.mdp -c em.gro -r em.gro -p topol.top -o nvt.tpr
       gmx mdrun -deffnm nvt
+      wget http://www.mdtutorials.com/gmx/lysozyme/Files/npt.mdp
       gmx grompp -f npt.mdp -c nvt.gro -r nvt.gro -t nvt.cpt -p topol.top -o npt.tpr
       gmx mdrun -deffnm nvt
       
-      # Production MD run([md.mdp](http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp))
+      # Production MD run
+      wget http://www.mdtutorials.com/gmx/lysozyme/Files/md.mdp
       gmx grompp -f md.mdp -c npt.gro -t npt.cpt -p topol.top -o md_0_1.tpr
       gmx mdrun -deffnm md_0_1
 
