@@ -17,7 +17,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
 ### Pipeline:
   1. Run full-atom molecular dynamics simulation in water
       
-      a) Gromacs modelling
+      __a) Gromacs modelling__
       ```bash
       # install gromacs 2018 from repository
       sudo apt-get install gromacs 
@@ -58,11 +58,13 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       gmx trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_noPBC.xtc -pbc mol -center
       gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
       ```
+      RMSD for TRIM25
+      
       ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/TRIM25/rmsd.png)
       
       The deviation reaches a constant level of about 2 angstroms, which means the stability of the structure.
       
-      b) Extraction of various conformations of ligase
+      __b) Extraction of various conformations of ligase__
   2. Predict binding sites
   3. Cluster the obtained predictions 
     
