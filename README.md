@@ -15,7 +15,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
 Е3 ligase FBXW7 (PDB structure: [2OVP](https://www.rcsb.org/structure/2OVP))
 
 ### Pipeline:
-  1. Run full-atom molecular dynamics simulation in water
+  #### 1. Run full-atom molecular dynamics simulation in water
       
       __a) Gromacs modelling__
       ```bash
@@ -71,9 +71,9 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       ```bash
       gmx trjconv -f md_0_1_noPBC.xtc -s md_0_1.tpr -b [start time] -e [end time] -o frame.pdb
       ```
-  2. Predict binding sites
+  #### 2. Predict binding sites
   
   We can now predict the most likely protein-peptide binding sites using [BiteNet](https://sites.skoltech.ru/imolecule/tools/bitenet/)
   
-  3. Cluster the obtained predictions 
+  #### 3. Cluster the obtained predictions 
     
