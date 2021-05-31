@@ -73,9 +73,9 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       ```bash
       gmx trjconv -f md_0_1_noPBC.xtc -s md_0_1.tpr -b [start time] -e [end time] -o frame.pdb
       ```
- 2. Predict binding sites
+ __2. Predict binding sites__
   
   We can now predict the most likely protein-peptide binding sites using [BiteNet](https://sites.skoltech.ru/imolecule/tools/bitenet/)
   
-3. Cluster the obtained predictions 
+__3. Cluster the obtained predictions__ 
     
