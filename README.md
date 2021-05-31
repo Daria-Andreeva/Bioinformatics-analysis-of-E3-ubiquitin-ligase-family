@@ -1,4 +1,4 @@
-# Bioinformatics analysis of E3 ubiquitin ligase family
+# Bioinformatics analysis of E3 ubiquitin ligase family. 
 ## Prediction of E3 ubiquitin ligases’ binding sites
 
 
@@ -15,9 +15,10 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
 Е3 ligase FBXW7 (PDB structure: [2OVP](https://www.rcsb.org/structure/2OVP))
 
 ### Pipeline:
-  #### 1. Run full-atom molecular dynamics simulation in water
-      
+1. Run full-atom molecular dynamics simulation in water
+
       __a) Gromacs modelling__
+      
       ```bash
       # install gromacs 2018 from repository
       sudo apt-get install gromacs 
@@ -58,6 +59,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       gmx trjconv -s md_0_1.tpr -f md_0_1.xtc -o md_0_1_noPBC.xtc -pbc mol -center
       gmx rms -s md_0_1.tpr -f md_0_1_noPBC.xtc -o rmsd.xvg -tu ns
       ```
+      
       RMSD for TRIM25
       
       ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/TRIM25/rmsd.png)
@@ -71,9 +73,9 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       ```bash
       gmx trjconv -f md_0_1_noPBC.xtc -s md_0_1.tpr -b [start time] -e [end time] -o frame.pdb
       ```
-  #### 2. Predict binding sites
+ 2. Predict binding sites
   
   We can now predict the most likely protein-peptide binding sites using [BiteNet](https://sites.skoltech.ru/imolecule/tools/bitenet/)
   
-  #### 3. Cluster the obtained predictions 
+3. Cluster the obtained predictions 
     
