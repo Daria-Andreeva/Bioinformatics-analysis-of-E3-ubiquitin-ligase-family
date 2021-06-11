@@ -80,7 +80,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
   ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/pics/prediction_0.png)
 __3. Cluster the obtained predictions__ 
 
-To determine the most likely binding site, we average the scores for all 20 frames and choose the site with the highest score.
+To determine the most likely binding site, we average the scores for all 20 frames and choose the site with the highest score(the detailed code is in /supplementary_code/predictions_analyze.ipynb).
 
 The following is visualization of TRIM25 by vmd, the site with the highest score is marked in red and amino acid residues are indicated.
 
