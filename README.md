@@ -21,7 +21,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       
       ```bash
       # install gromacs 2018 from repository
-      sudo apt-get install gromacs 
+      apt-get install gromacs 
       
       # convert your pdb file into gro format, leaving only the protein of interest in the configuration (for this you can use grep or any other way). Select field amber03
       gmx pdb2gmx -f protein.pdb -o protein.gro -water spce
