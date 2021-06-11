@@ -76,7 +76,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
  __2. Predict binding sites__
   
   We can now predict the most likely protein-peptide binding sites for each frame using [BiteNet](https://sites.skoltech.ru/imolecule/tools/bitenet/)
-  As a result, we will get the corresponding csv file. The value of the score parameter (distributed from 0 to 1) reflects the most probable binding sites.
+  As a result, to the mail indicated on the site, you will receive a csv file with predictions. The value of the score parameter (distributed from 0 to 1) reflects the most probable binding sites.
   ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/pics/prediction_0.png)
 __3. Cluster the obtained predictions__ 
 
