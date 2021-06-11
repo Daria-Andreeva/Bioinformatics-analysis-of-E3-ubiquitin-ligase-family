@@ -62,7 +62,7 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
       
       RMSD for TRIM25
       
-      ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/TRIM25/rmsd.png)
+      ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/pics/rmsd.png)
       
       The deviation reaches a constant level of about 2 angstroms, which means the stability of the structure.
       
@@ -77,14 +77,14 @@ In order to predict binding sites we ran a full-atom molecular dynamics simulati
   
   We can now predict the most likely protein-peptide binding sites for each frame using [BiteNet](https://sites.skoltech.ru/imolecule/tools/bitenet/)
   As a result, we will get the corresponding csv file. The value of the score parameter (distributed from 0 to 1) reflects the most probable binding sites.
-  ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/TRIM25/prediction_0.png)
+  ![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/pics/prediction_0.png)
 __3. Cluster the obtained predictions__ 
 
 To determine the most likely binding site, we average the scores for all 20 frames and choose the site with the highest score.
 
 The following is visualization of TRIM25 by vmd, the site with the highest score is marked in red and amino acid residues are indicated.
 
-![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/TRIM25/top_site.jpg)
+![Image alt](https://github.com/Daria-Andreeva/Bioinformatics-analysis-of-E3-ubiquitin-ligase-family/blob/main/pics/top_site.jpg)
 
 ### References
 1. Kozlovskii, I., Popov, P. Spatiotemporal identification of druggable binding sites using deep learning. Commun Biol 3, 618 (2020).
